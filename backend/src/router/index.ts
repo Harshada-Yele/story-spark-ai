@@ -7,12 +7,17 @@ import { PostRouter } from "../app/modules/post/post.router";
 import { NotificationRouter } from "../app/modules/notification/notification.router";
 import { CommentRouter } from "../app/modules/comment/comment.router";
 import { AnalysisRouter } from "../app/modules/analysis/analysis.router";
+import { ReviewRouter } from "../app/modules/review/review.router";
 import { ReactionRouter } from "../app/modules/reaction/reaction.router";
+
 import { NewsletterRouter } from "../app/modules/newsletter/newsletter.route";
 
 
 
 // alongside the other routes:
+
+
+import { BookmarkRouter } from "../app/modules/bookmark/bookmark.router";
 
 const router = express.Router();
 
@@ -26,6 +31,10 @@ const modules = [
     router: UserRouter,
   },
   {
+  path: "/review",
+  router: ReviewRouter,
+},
+  {
     path: "/ai_model",
     router: AIModelRouter,
   },
@@ -38,7 +47,7 @@ const modules = [
     router: PostRouter,
   },
   {
-    path: "/notification",
+    path: "/notifications",
     router: NotificationRouter,
   },
   {
@@ -56,6 +65,10 @@ const modules = [
   {
     path: "/newsletter",
     router: NewsletterRouter,
+  },
+  {
+    path: "/bookmarks",
+    router: BookmarkRouter,
   },
 ];
 modules.forEach((route) => router.use(route.path, route.router));
